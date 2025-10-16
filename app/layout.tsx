@@ -1,43 +1,22 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { GeistSans } from "geist/font/sans"
-import { GeistMono } from "geist/font/mono"
-import { Analytics } from "@vercel/analytics/next"
-import { Suspense } from "react"
-import "./globals.css"
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "BrandCore - AI-Powered Brandable Domain Generator",
-  description:
-    "Discover unique, brandable domain names with 95-100% availability. Fast and advanced AI-powered crawling with real-time results from modern English dictionaries.",
-  keywords: [
-    "domain generator",
-    "brandable domains",
-    "AI domain finder",
-    "domain availability",
-    "brand names",
-    "domain search",
-  ],
-  authors: [{ name: "BrandCore" }],
-  generator: "v0.app",
-  openGraph: {
-    title: "BrandCore - AI-Powered Brandable Domain Generator",
-    description: "Discover unique, brandable domain names with 95-100% availability",
-    type: "website",
-  },
-}
+  title: 'Enhanced Universal Web Crawler',
+  description: 'Advanced web scraping with AI-powered filtering and semantic analysis',
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable} antialiased`}>
-        <Suspense fallback={<div>Loading...</div>}>{children}</Suspense>
-        <Analytics />
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
-  )
+  );
 }
